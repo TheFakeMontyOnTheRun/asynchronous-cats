@@ -44,10 +44,13 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
                 loadRandomCatUrlIntoView(mCatImageView1 );
                 break;
             case R.id.btnLoadCatImage2:
+                loadRandomCatUrlIntoView(mCatImageView2 );
                 break;
         }
     }
 
+    private void loadImageIntoImageView( final ImageView view, final String url) {
+    }
 
     private void loadRandomCatUrlIntoView( final ImageView view ) {
         eventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
@@ -59,6 +62,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
             public void onSuccess(EventResponse response) {
                 String url = ((FetchCatUrlResponse) response).getUrlString();
                 Log.d("Monty", url);
+                loadImageIntoImageView( view, url );
             }
         }));
     }
