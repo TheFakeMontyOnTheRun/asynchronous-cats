@@ -5,5 +5,5 @@ package br.odb.asynceventhandlercore;
  */
 public interface EventResultCallback {
     void onFailure();
-    void onSuccess();
+    void onSuccess( EventResponse response );
 }

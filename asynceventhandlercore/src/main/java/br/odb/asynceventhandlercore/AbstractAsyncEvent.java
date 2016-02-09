@@ -10,4 +10,16 @@ public abstract class AbstractAsyncEvent implements AsyncEvent  {
     AbstractAsyncEvent( EventResultCallback callback ) {
         mResultCallback = callback;
     }
+
+    void reportFailure() {
+        if ( mResultCallback != null ) {
+            mResultCallback.onFailure();
+        }
+    }
+
+    void reportSuccess( EventResponse response ) {
+        if ( mResultCallback != null ) {
+            mResultCallback.onSuccess( response );
+        }
+    }
 }
