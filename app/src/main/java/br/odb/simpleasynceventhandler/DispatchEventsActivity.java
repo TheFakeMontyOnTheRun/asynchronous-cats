@@ -1,6 +1,7 @@
 package br.odb.simpleasynceventhandler;
 
 import android.support.v7.app.AppCompatActivity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -60,6 +61,13 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onSuccess(final EventResponse response) {
+                DispatchEventsActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Bitmap bmp = ((FetchCatImageResponse) response).getCatImage();
+                        view.setImageBitmap(bmp);
+                    }
+                });
             }
         }));
     }
