@@ -7,5 +7,5 @@ import android.net.Uri;
  */
 public interface AsyncEventFactory {
     AsyncEvent requestCatUrl( EventResultCallback callback );
-    AsyncEvent requestCatImage( Uri catLocation, EventResultCallback callback );
+    AsyncEvent requestCatImage( String catLocation, EventResultCallback callback );
 }

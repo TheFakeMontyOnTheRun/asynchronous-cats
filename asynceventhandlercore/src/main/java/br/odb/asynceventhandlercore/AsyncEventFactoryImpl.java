@@ -13,7 +13,7 @@ public class AsyncEventFactoryImpl implements AsyncEventFactory {
     }
 
     @Override
-    public AsyncEvent requestCatImage(Uri catLocation, EventResultCallback callback) {
+    public AsyncEvent requestCatImage(String catLocation, EventResultCallback callback) {
         return new requestCatImage( catLocation, callback );
     }
 }
