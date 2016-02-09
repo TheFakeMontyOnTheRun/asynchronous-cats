@@ -10,7 +10,7 @@ public class EventHandler implements Runnable {
     Thread eventHandlerThread = new Thread( this );
     private boolean running = true;
 
-    void startHandling() {
+    public void startHandling() {
         running = true;
         eventHandlerThread.start();
     }

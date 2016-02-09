@@ -30,36 +30,31 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         this.findViewById( R.id.btnLoadCatImage2 ).setOnClickListener(this);
 
         eventHandler = new EventHandler();
+        eventHandler.startHandling();
     }
 
     @Override
     public void onClick(View v) {
         switch( v.getId() ) {
             case R.id.btnLoadCatImage1:
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        new RequestCatUrlAsyncEventImp(new EventResultCallback() {
-                            @Override
-                            public void onFailure() {
-
-                            }
-
-                            @Override
-                            public void onSuccess( EventResponse response ) {
-                                String url = ( (FetchCatUrlResponse)response ).getUrlString();
-                                Log.d("Monty", url );
-                            }
-                        }).perform();
-                    }
-                }).start();
-
-
-
+                loadRandomCatUrl();
                 break;
             case R.id.btnLoadCatImage2:
                 break;
         }
+    }
+
+    private void loadRandomCatUrl() {
+        eventHandler.pushEvent(new RequestCatUrlAsyncEventImp(new EventResultCallback() {
+            @Override
+            public void onFailure() {
+            }
+
+            @Override
+            public void onSuccess(EventResponse response) {
+                String url = ((FetchCatUrlResponse) response).getUrlString();
+                Log.d("Monty", url);
+            }
+        }));
     }
 }
