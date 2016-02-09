@@ -11,6 +11,7 @@ import br.odb.asynceventhandlercore.AsyncEventFactoryImpl;
 import br.odb.asynceventhandlercore.EventHandler;
 import br.odb.asynceventhandlercore.EventResponse;
 import br.odb.asynceventhandlercore.EventResultCallback;
+import br.odb.asynceventhandlercore.FetchCatImageResponse;
 import br.odb.asynceventhandlercore.FetchCatUrlResponse;
 import br.odb.asynceventhandlercore.RequestCatUrlAsyncEventImp;
 
@@ -50,6 +51,17 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
     }
 
     private void loadImageIntoImageView( final ImageView view, final String url) {
+        eventHandler.pushEvent(mEventFactory.requestCatImage(url, new EventResultCallback() {
+
+            @Override
+            public void onFailure() {
+
+            }
+
+            @Override
+            public void onSuccess(final EventResponse response) {
+            }
+        }));
     }
 
     private void loadRandomCatUrlIntoView( final ImageView view ) {
