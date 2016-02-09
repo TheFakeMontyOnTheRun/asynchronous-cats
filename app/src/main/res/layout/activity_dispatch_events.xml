@@ -20,15 +20,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/catImageView1"
+            android:contentDescription="@string/most_likely_cat"
             android:background="#000" />
         <Button
             android:layout_width="107dp"
             android:layout_height="wrap_content"
-            android:text="Give me a cat!"
+            android:text="@string/give_me_cat"
             android:id="@+id/btnLoadCatImage1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
         />
     </LinearLayout>
 
@@ -40,16 +38,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="@string/most_likely_cat"
             android:id="@+id/catImageView2"
             android:background="#000" />
         <Button
             android:layout_width="107dp"
             android:layout_height="wrap_content"
-            android:text="Give me a cat!"
+            android:text="@string/give_me_cat"
             android:id="@+id/btnLoadCatImage2"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             />
     </LinearLayout>
 </LinearLayout>
