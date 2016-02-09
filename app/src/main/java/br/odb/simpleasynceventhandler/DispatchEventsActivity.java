@@ -1,8 +1,8 @@
 package br.odb.simpleasynceventhandler;
 
-import android.support.v7.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +14,6 @@ import br.odb.asynceventhandlercore.EventResponse;
 import br.odb.asynceventhandlercore.EventResultCallback;
 import br.odb.asynceventhandlercore.FetchCatImageResponse;
 import br.odb.asynceventhandlercore.FetchCatUrlResponse;
-import br.odb.asynceventhandlercore.RequestCatUrlAsyncEventImp;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 

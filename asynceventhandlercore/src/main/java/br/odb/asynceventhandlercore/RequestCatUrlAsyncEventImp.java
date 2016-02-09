@@ -33,11 +33,13 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
 
         try {
             HttpURLConnection connection = (HttpURLConnection) randomCatsApi.openConnection();
+
             connection.setReadTimeout(10000 /* milliseconds */);
             connection.setConnectTimeout(15000 /* milliseconds */);
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
             connection.connect();
+
             int response = connection.getResponseCode();
 
             if ( response == 200 ) {
