@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import br.odb.asynceventhandlercore.AsyncEventFactory;
+import br.odb.asynceventhandlercore.AsyncEventFactoryImpl;
 import br.odb.asynceventhandlercore.EventHandler;
 import br.odb.asynceventhandlercore.EventResponse;
 import br.odb.asynceventhandlercore.EventResultCallback;
@@ -17,6 +19,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
     ImageView mCatImageView1;
     ImageView mCatImageView2;
     private EventHandler eventHandler;
+    AsyncEventFactory mEventFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
         eventHandler = new EventHandler();
         eventHandler.startHandling();
+        mEventFactory = new AsyncEventFactoryImpl();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
 
     private void loadRandomCatUrlIntoView( final ImageView view ) {
-        eventHandler.pushEvent(new RequestCatUrlAsyncEventImp(new EventResultCallback() {
+        eventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
             @Override
             public void onFailure() {
             }
