@@ -37,14 +37,15 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch( v.getId() ) {
             case R.id.btnLoadCatImage1:
-                loadRandomCatUrl();
+                loadRandomCatUrlIntoView(mCatImageView1 );
                 break;
             case R.id.btnLoadCatImage2:
                 break;
         }
     }
 
-    private void loadRandomCatUrl() {
+
+    private void loadRandomCatUrlIntoView( final ImageView view ) {
         eventHandler.pushEvent(new RequestCatUrlAsyncEventImp(new EventResultCallback() {
             @Override
             public void onFailure() {
