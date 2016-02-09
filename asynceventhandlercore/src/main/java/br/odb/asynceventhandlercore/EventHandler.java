@@ -7,7 +7,7 @@ import java.util.Vector;
  */
 public class EventHandler implements Runnable {
     final Vector< AsyncEvent > events = new Vector<>();
-    Thread eventHandlerThread = new Thread( this );
+    final Thread eventHandlerThread = new Thread( this );
     private boolean running = true;
 
     public void startHandling() {
