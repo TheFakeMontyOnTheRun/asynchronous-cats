@@ -19,7 +19,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
     ImageView mCatImageView1;
     ImageView mCatImageView2;
-    private EventHandler eventHandler;
+    private EventHandler mEventHandler;
     AsyncEventFactory mEventFactory;
 
     @Override
@@ -33,8 +33,8 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         this.findViewById( R.id.btnLoadCatImage1 ).setOnClickListener(this);
         this.findViewById( R.id.btnLoadCatImage2 ).setOnClickListener(this);
 
-        eventHandler = new EventHandler();
-        eventHandler.startHandling();
+        mEventHandler = new EventHandler();
+        mEventHandler.startHandling();
         mEventFactory = new AsyncEventFactoryImpl();
     }
 
@@ -45,13 +45,13 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
                 loadRandomCatUrlIntoView(mCatImageView1 );
                 break;
             case R.id.btnLoadCatImage2:
-                loadRandomCatUrlIntoView(mCatImageView2 );
+                loadRandomCatUrlIntoView(mCatImageView2);
                 break;
         }
     }
 
     private void loadImageIntoImageView( final ImageView view, final String url) {
-        eventHandler.pushEvent(mEventFactory.requestCatImage(url, new EventResultCallback() {
+        mEventHandler.pushEvent(mEventFactory.requestCatImage(url, new EventResultCallback() {
 
             @Override
             public void onFailure() {
@@ -72,7 +72,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
     }
 
     private void loadRandomCatUrlIntoView( final ImageView view ) {
-        eventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
+        mEventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
             @Override
             public void onFailure() {
             }
@@ -81,7 +81,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
             public void onSuccess(EventResponse response) {
                 String url = ((FetchCatUrlResponse) response).getUrlString();
                 Log.d("Monty", url);
-                loadImageIntoImageView( view, url );
+                loadImageIntoImageView(view, url);
             }
         }));
     }
