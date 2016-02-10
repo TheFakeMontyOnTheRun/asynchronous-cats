@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import br.odb.asynceventhandlercore.AsyncEventFactory;
 import br.odb.asynceventhandlercore.EventHandler;
@@ -53,7 +54,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onFailure() {
-
+                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_get_cat, Toast.LENGTH_SHORT ).show();
             }
 
             @Override
@@ -73,6 +74,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         mEventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
             @Override
             public void onFailure() {
+                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_find_a_cat, Toast.LENGTH_SHORT ).show();
             }
 
             @Override
