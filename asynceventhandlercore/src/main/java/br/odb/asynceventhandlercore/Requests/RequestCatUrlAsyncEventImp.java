@@ -17,6 +17,9 @@ import br.odb.asynceventhandlercore.Responses.FetchCatUrlResponse;
  * Created by monty on 09/02/16.
  */
 public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
+
+    public static final String CAT_IMAGE_URL_FIELD = "file";
+
     public RequestCatUrlAsyncEventImp(EventResultCallback callback) {
         super( callback );
     }
@@ -45,7 +48,7 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
 
             int response = connection.getResponseCode();
 
-            if ( response == 200 ) {
+            if ( response == HttpURLConnection.HTTP_OK ) {
                 DataInputStream dis;
                 InputStream is = connection.getInputStream();
                 dis = new DataInputStream( is );
@@ -55,7 +58,7 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
                 dis.close();
 
                 JSONObject reader = new JSONObject(catUrl);
-                String url = reader.get("file").toString();
+                String url = reader.get(CAT_IMAGE_URL_FIELD).toString();
                 reportSuccess( new FetchCatUrlResponse( url ) );
             } else {
                 reportFailure();

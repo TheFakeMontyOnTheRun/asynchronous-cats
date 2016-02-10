@@ -26,7 +26,7 @@ public class RequestCatImageAsyncEventImp extends AbstractAsyncEvent {
     @Override
     public void perform() {
 
-        URL url = null;
+        URL url;
         try {
             url = new URL(mCatImageUrl);
             URLConnection connection = url.openConnection();
