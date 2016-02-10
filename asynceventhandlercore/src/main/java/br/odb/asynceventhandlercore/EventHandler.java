@@ -9,6 +9,7 @@ public class EventHandler implements Runnable {
     final Vector< AsyncEvent > events = new Vector<>();
     final Thread eventHandlerThread = new Thread( this );
     private boolean running = true;
+    private AsyncEventFactory mEventFactory = new AsyncEventFactoryImpl();
 
     public void startHandling() {
         running = true;
@@ -42,5 +43,9 @@ public class EventHandler implements Runnable {
 
     public void pushEvent( AsyncEvent event ) {
         events.add( event );
+    }
+
+    public AsyncEventFactory getFactory() {
+        return mEventFactory;
     }
 }

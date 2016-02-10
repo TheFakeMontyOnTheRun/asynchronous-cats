@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import br.odb.asynceventhandlercore.AsyncEventFactory;
-import br.odb.asynceventhandlercore.AsyncEventFactoryImpl;
 import br.odb.asynceventhandlercore.EventHandler;
 import br.odb.asynceventhandlercore.EventResponse;
 import br.odb.asynceventhandlercore.EventResultCallback;
@@ -34,7 +33,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
         mEventHandler = new EventHandler();
         mEventHandler.startHandling();
-        mEventFactory = new AsyncEventFactoryImpl();
+        mEventFactory = mEventHandler.getFactory();
     }
 
     @Override
