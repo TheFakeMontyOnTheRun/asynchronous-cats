@@ -88,7 +88,7 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onFailure() {
-                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_get_cat, Toast.LENGTH_SHORT ).show();
+                reportErrorToFetchUrl();
             }
 
             @Override
@@ -104,11 +104,20 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         }));
     }
 
+    private void reportErrorToFetchUrl() {
+        DispatchEventsActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_get_cat, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void loadRandomCatUrlIntoView( final ImageView view ) {
         mEventHandler.pushEvent(mEventFactory.requestCatUrl(new EventResultCallback() {
             @Override
             public void onFailure() {
-                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_find_a_cat, Toast.LENGTH_SHORT ).show();
+                reportErrorToDownloadImage();
             }
 
             @Override
@@ -117,5 +126,15 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
                 loadImageIntoImageView(view, url);
             }
         }));
+    }
+
+    private void reportErrorToDownloadImage() {
+        DispatchEventsActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(DispatchEventsActivity.this, R.string.failed_to_find_a_cat, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
