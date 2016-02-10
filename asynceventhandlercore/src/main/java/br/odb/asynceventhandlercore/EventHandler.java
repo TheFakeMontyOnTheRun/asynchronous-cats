@@ -29,8 +29,8 @@ public class EventHandler {
 
     private boolean running = true;
 
-    public EventHandler() {
-        mDesiredLatencyInMillis = 100L;
+    public EventHandler( long desiredLatency ) {
+        mDesiredLatencyInMillis = desiredLatency;
         eventHandlerThread.start();
     }
 
