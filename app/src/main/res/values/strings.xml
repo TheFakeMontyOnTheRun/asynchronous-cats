@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simple Async Event Handler</string>
+    <string name="automatic_cat">Automatic cat randomizer</string>
 </resources>

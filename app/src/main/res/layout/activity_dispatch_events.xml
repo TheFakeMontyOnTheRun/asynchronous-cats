@@ -13,8 +13,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#999"
+        android:weightSum="1">
 
         <ImageView
             android:layout_width="100dp"
@@ -24,16 +26,17 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:background="#000" />
         <Button
             android:layout_width="107dp"
-            android:layout_height="wrap_content"
+            android:layout_height="114dp"
             android:text="@string/give_me_cat"
             android:id="@+id/btnLoadCatImage1"
-        />
+            android:layout_weight="1.13" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="#DDD">
 
         <ImageView
             android:layout_width="100dp"
@@ -42,10 +45,32 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/catImageView2"
             android:background="#000" />
         <Button
-            android:layout_width="107dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
             android:text="@string/give_me_cat"
             android:id="@+id/btnLoadCatImage2"
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#999">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/most_likely_cat"
+            android:id="@+id/catImageView3"
+            android:background="#000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/automatic_cat"
+            android:id="@+id/textView"
+            android:gravity="center_vertical|center_horizontal" />
+
     </LinearLayout>
 </LinearLayout>
