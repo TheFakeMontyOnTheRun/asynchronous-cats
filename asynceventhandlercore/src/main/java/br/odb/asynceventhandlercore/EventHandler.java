@@ -7,11 +7,24 @@ import br.odb.asynceventhandlercore.Factories.AsyncEventFactoryImpl;
 /**
  * Created by monty on 09/02/16.
  */
-public class EventHandler implements Runnable {
+public class EventHandler {
     private final Vector< AsyncEvent > events = new Vector<>();
-    private final Thread eventHandlerThread = new Thread( this );
     private final long mDesiredLatencyInMillis;
     private final AsyncEventFactory mEventFactory = new AsyncEventFactoryImpl();
+
+    private final Thread eventHandlerThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while( running ) {
+                try {
+                    consumeFromQueue();
+                    Thread.sleep(mDesiredLatencyInMillis);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 
     private boolean running = true;
 
@@ -26,19 +39,6 @@ public class EventHandler implements Runnable {
 
     void stopHandling() {
         running = false;
-    }
-
-
-    @Override
-    public void run() {
-        while( running ) {
-            try {
-                consumeFromQueue();
-                Thread.sleep(mDesiredLatencyInMillis);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private void consumeFromQueue() {
