@@ -24,6 +24,7 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
     @Override
     public void perform() {
         URL randomCatsApi = null;
+
         try {
             randomCatsApi = new URL( "http://random.cat/meow" );
         } catch (MalformedURLException e) {
@@ -33,18 +34,24 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
         try {
             HttpURLConnection connection = (HttpURLConnection) randomCatsApi.openConnection();
 
-            connection.setReadTimeout(10000 /* milliseconds */);
-            connection.setConnectTimeout(15000 /* milliseconds */);
-            connection.setRequestMethod("GET");
-            connection.setDoInput(true);
-            connection.connect();
+            if ( connection != null ) {
+                connection.setRequestMethod("GET");
+                connection.setDoInput(true);
+                connection.connect();
+            } else {
+                reportFailure();
+                return;
+            }
 
             int response = connection.getResponseCode();
 
             if ( response == 200 ) {
+                DataInputStream dis;
                 InputStream is = connection.getInputStream();
-                DataInputStream dis = new DataInputStream( is );
+                dis = new DataInputStream( is );
                 String catUrl = dis.readLine();
+                dis.close();
+
                 JSONObject reader = new JSONObject(catUrl);
                 String url = reader.get("file").toString();
                 reportSuccess( new FetchCatUrlResponse( url ) );
