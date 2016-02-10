@@ -13,9 +13,12 @@ public class EventHandler {
     private final Thread eventHandlerThread = new Thread(new Runnable() {
         @Override
         public void run() {
-            while( running ) {
+
+            while( true ) {
                 try {
-                    consumeFromQueue();
+                    if ( running ) {
+                        consumeFromQueue();
+                    }
                     Thread.sleep(mDesiredLatencyInMillis);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -26,16 +29,16 @@ public class EventHandler {
 
     private boolean running = true;
 
-    public EventHandler(long desiredLatency) {
-        mDesiredLatencyInMillis = desiredLatency;
+    public EventHandler() {
+        mDesiredLatencyInMillis = (long) 100;
+        eventHandlerThread.start();
     }
 
     public void startHandling() {
         running = true;
-        eventHandlerThread.start();
     }
 
-    void stopHandling() {
+    public void stopHandling() {
         running = false;
     }
 
@@ -53,5 +56,9 @@ public class EventHandler {
 
     public AsyncEventFactory getFactory() {
         return mEventFactory;
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }
