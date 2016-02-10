@@ -7,9 +7,9 @@ import br.odb.asynceventhandlercore.EventResultCallback;
 /**
  * Created by monty on 09/02/16.
  */
-public abstract class AbstractAsyncEvent implements AsyncEvent {
+abstract class AbstractAsyncEvent implements AsyncEvent {
 
-    final EventResultCallback mResultCallback;
+    private final EventResultCallback mResultCallback;
 
     AbstractAsyncEvent( EventResultCallback callback ) {
         mResultCallback = callback;

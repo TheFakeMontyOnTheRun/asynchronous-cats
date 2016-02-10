@@ -15,7 +15,7 @@ import java.net.URL;
  */
 class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
 
-    public static final String CAT_IMAGE_URL_FIELD = "file";
+    private static final String CAT_IMAGE_URL_FIELD = "file";
 
     public RequestCatUrlAsyncEventImp(EventResultCallback callback) {
         super( callback );
