@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Async Event Handler</string>
+    <string name="app_name">Asynchronous Cats</string>
     <string name="automatic_cat">Automatic cat randomizer ("RandoCat")</string>
     <string name="give_me_cat">Give me a cat!</string>
     <string name="most_likely_cat">Most likely, a cat doing cat things</string>
