@@ -8,11 +8,12 @@ import br.odb.asynceventhandlercore.Factories.AsyncEventFactoryImpl;
  * Created by monty on 09/02/16.
  */
 public class EventHandler implements Runnable {
-    final Vector< AsyncEvent > events = new Vector<>();
-    final Thread eventHandlerThread = new Thread( this );
+    private final Vector< AsyncEvent > events = new Vector<>();
+    private final Thread eventHandlerThread = new Thread( this );
     private final long mDesiredLatencyInMilis;
+    private final AsyncEventFactory mEventFactory = new AsyncEventFactoryImpl();
+
     private boolean running = true;
-    private AsyncEventFactory mEventFactory = new AsyncEventFactoryImpl();
 
     public EventHandler(long desiredLatency) {
         mDesiredLatencyInMilis = desiredLatency;
