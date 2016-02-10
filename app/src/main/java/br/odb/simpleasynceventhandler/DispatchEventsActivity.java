@@ -3,7 +3,6 @@ package br.odb.simpleasynceventhandler;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -80,7 +79,6 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
             @Override
             public void onSuccess(EventResponse response) {
                 String url = ((FetchCatUrlResponse) response).getUrlString();
-                Log.d("Monty", url);
                 loadImageIntoImageView(view, url);
             }
         }));
