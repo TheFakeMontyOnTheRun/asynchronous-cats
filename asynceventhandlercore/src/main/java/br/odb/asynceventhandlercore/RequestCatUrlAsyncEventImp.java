@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 /**
  * Created by monty on 09/02/16.
@@ -46,14 +47,10 @@ class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
             int response = connection.getResponseCode();
 
             if ( response == HttpURLConnection.HTTP_OK ) {
-                DataInputStream dis;
                 InputStream is = connection.getInputStream();
-                dis = new DataInputStream( is );
-
-                //had to use readLine since it seems that the service doesn't get along very well with readUTF.
-                String catUrl = dis.readLine();
-                dis.close();
-
+                Scanner scanner = new Scanner( is );
+                String catUrl = scanner.nextLine();
+                is.close();
                 JSONObject reader = new JSONObject(catUrl);
                 String url = reader.get(CAT_IMAGE_URL_FIELD).toString();
                 reportSuccess( new FetchCatUrlResponse( url ) );
