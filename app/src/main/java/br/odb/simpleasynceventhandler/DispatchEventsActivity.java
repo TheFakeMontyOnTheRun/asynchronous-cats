@@ -16,8 +16,8 @@ import br.odb.asynceventhandlercore.FetchCatUrlResponse;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView mCatImageView1;
-    ImageView mCatImageView2;
+    private ImageView mCatImageView1;
+    private ImageView mCatImageView2;
     private EventHandler mEventHandler;
     AsyncEventFactory mEventFactory;
 
