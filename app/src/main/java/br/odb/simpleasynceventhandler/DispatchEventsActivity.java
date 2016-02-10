@@ -32,9 +32,24 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         this.findViewById( R.id.btnLoadCatImage1 ).setOnClickListener(this);
         this.findViewById( R.id.btnLoadCatImage2 ).setOnClickListener(this);
 
-        mEventHandler = new EventHandler( 100 );
-        mEventHandler.startHandling();
+        mEventHandler = new EventHandler();
         mEventFactory = mEventHandler.getFactory();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mEventHandler.startHandling();
+
+    }
+
+    @Override
+    protected void onPause() {
+        mEventHandler.stopHandling();
+
+        super.onPause();
+    }
     }
 
     @Override
