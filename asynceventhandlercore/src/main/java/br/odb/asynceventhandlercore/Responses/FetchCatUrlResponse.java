@@ -1,4 +1,6 @@
-package br.odb.asynceventhandlercore;
+package br.odb.asynceventhandlercore.Responses;
+
+import br.odb.asynceventhandlercore.EventResponse;
 
 /**
  * Created by monty on 09/02/16.
@@ -6,7 +8,7 @@ package br.odb.asynceventhandlercore;
 public class FetchCatUrlResponse implements EventResponse {
     private final String mUrlString;
 
-    FetchCatUrlResponse( String url ) {
+    public FetchCatUrlResponse(String url) {
         this.mUrlString = url;
     }
 

@@ -1,18 +1,17 @@
-package br.odb.asynceventhandlercore;
-
-import android.net.Uri;
-import android.util.Log;
+package br.odb.asynceventhandlercore.Requests;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import br.odb.asynceventhandlercore.EventResultCallback;
+import br.odb.asynceventhandlercore.Responses.FetchCatUrlResponse;
 
 /**
  * Created by monty on 09/02/16.

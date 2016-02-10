@@ -1,9 +1,13 @@
-package br.odb.asynceventhandlercore;
+package br.odb.asynceventhandlercore.Requests;
+
+import br.odb.asynceventhandlercore.AsyncEvent;
+import br.odb.asynceventhandlercore.EventResponse;
+import br.odb.asynceventhandlercore.EventResultCallback;
 
 /**
  * Created by monty on 09/02/16.
  */
-public abstract class AbstractAsyncEvent implements AsyncEvent  {
+public abstract class AbstractAsyncEvent implements AsyncEvent {
 
     final EventResultCallback mResultCallback;
 

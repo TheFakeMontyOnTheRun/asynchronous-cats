@@ -11,8 +11,8 @@ import br.odb.asynceventhandlercore.AsyncEventFactory;
 import br.odb.asynceventhandlercore.EventHandler;
 import br.odb.asynceventhandlercore.EventResponse;
 import br.odb.asynceventhandlercore.EventResultCallback;
-import br.odb.asynceventhandlercore.FetchCatImageResponse;
-import br.odb.asynceventhandlercore.FetchCatUrlResponse;
+import br.odb.asynceventhandlercore.Responses.FetchCatImageResponse;
+import br.odb.asynceventhandlercore.Responses.FetchCatUrlResponse;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 
