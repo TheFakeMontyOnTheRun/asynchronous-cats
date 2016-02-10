@@ -2,8 +2,6 @@ package br.odb.asynceventhandlercore;
 
 import java.util.Vector;
 
-import br.odb.asynceventhandlercore.Factories.AsyncEventFactoryImpl;
-
 /**
  * Created by monty on 09/02/16.
  */

@@ -1,4 +1,4 @@
-package br.odb.asynceventhandlercore.Requests;
+package br.odb.asynceventhandlercore;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,13 +8,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import br.odb.asynceventhandlercore.EventResultCallback;
-import br.odb.asynceventhandlercore.Responses.FetchCatImageResponse;
-
 /**
  * Created by monty on 09/02/16.
  */
-public class RequestCatImageAsyncEventImp extends AbstractAsyncEvent {
+class RequestCatImageAsyncEventImp extends AbstractAsyncEvent {
     private final String mCatImageUrl;
 
     public RequestCatImageAsyncEventImp(String catLocation, EventResultCallback callback) {

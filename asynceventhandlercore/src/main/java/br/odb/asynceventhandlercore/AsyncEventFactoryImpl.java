@@ -1,10 +1,4 @@
-package br.odb.asynceventhandlercore.Factories;
-
-import br.odb.asynceventhandlercore.AsyncEvent;
-import br.odb.asynceventhandlercore.AsyncEventFactory;
-import br.odb.asynceventhandlercore.EventResultCallback;
-import br.odb.asynceventhandlercore.Requests.RequestCatUrlAsyncEventImp;
-import br.odb.asynceventhandlercore.Requests.RequestCatImageAsyncEventImp;
+package br.odb.asynceventhandlercore;
 
 /**
  * Created by monty on 09/02/16.

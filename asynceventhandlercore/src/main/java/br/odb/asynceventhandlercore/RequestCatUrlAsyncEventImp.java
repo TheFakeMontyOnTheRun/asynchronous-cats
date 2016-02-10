@@ -1,4 +1,4 @@
-package br.odb.asynceventhandlercore.Requests;
+package br.odb.asynceventhandlercore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,13 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import br.odb.asynceventhandlercore.EventResultCallback;
-import br.odb.asynceventhandlercore.Responses.FetchCatUrlResponse;
-
 /**
  * Created by monty on 09/02/16.
  */
-public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
+class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
 
     public static final String CAT_IMAGE_URL_FIELD = "file";
 

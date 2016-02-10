@@ -1,4 +1,4 @@
-package br.odb.asynceventhandlercore.Requests;
+package br.odb.asynceventhandlercore;
 
 import br.odb.asynceventhandlercore.AsyncEvent;
 import br.odb.asynceventhandlercore.EventResponse;

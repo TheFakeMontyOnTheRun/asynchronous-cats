@@ -1,4 +1,4 @@
-package br.odb.asynceventhandlercore.Responses;
+package br.odb.asynceventhandlercore;
 
 import android.graphics.Bitmap;
 
