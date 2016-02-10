@@ -3,7 +3,6 @@ package br.odb.asynceventhandlercore;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -58,9 +57,7 @@ class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
                 reportFailure();
             }
 
-        } catch (IOException e) {
-            reportFailure();
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             reportFailure();
         }
     }

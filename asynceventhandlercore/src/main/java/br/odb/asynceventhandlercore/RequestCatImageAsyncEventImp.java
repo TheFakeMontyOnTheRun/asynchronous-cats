@@ -29,8 +29,6 @@ class RequestCatImageAsyncEventImp extends AbstractAsyncEvent {
             URLConnection connection = url.openConnection();
             Bitmap bmp = BitmapFactory.decodeStream(connection.getInputStream());
             reportSuccess( new FetchCatImageResponse( bmp ) );
-        } catch (MalformedURLException e) {
-            reportFailure();
         } catch (IOException e) {
             reportFailure();
         }

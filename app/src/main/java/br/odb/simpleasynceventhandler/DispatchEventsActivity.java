@@ -19,14 +19,14 @@ import br.odb.asynceventhandlercore.FetchCatUrlResponse;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static long RANDOCAT_INTERVAL = 2000L;
+    private static final long RANDOCAT_INTERVAL = 2000L;
 
     private ImageView mCatImageView1;
     private ImageView mCatImageView2;
     private ImageView mCatImageView3;
     private AsyncEventFactory mEventFactory;
     private EventHandler mEventHandler;
-    private Timer mTimer = new Timer();
+    private final Timer mTimer = new Timer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

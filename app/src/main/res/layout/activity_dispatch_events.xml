@@ -16,7 +16,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#999"
-        android:weightSum="1">
+        >
 
         <ImageView
             android:layout_width="100dp"
@@ -29,7 +29,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_height="match_parent"
             android:text="@string/give_me_cat"
             android:id="@+id/btnLoadCatImage1"
-            android:layout_weight="1.13" />
+             />
     </LinearLayout>
 
     <LinearLayout
