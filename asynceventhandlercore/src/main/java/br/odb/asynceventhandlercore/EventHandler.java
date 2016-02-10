@@ -27,7 +27,7 @@ public class EventHandler {
         }
     });
 
-    private boolean running = true;
+    private boolean running = false;
 
     public EventHandler( long desiredLatency ) {
         mDesiredLatencyInMillis = desiredLatency;
