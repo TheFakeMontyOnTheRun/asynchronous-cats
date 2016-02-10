@@ -49,6 +49,8 @@ public class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
                 DataInputStream dis;
                 InputStream is = connection.getInputStream();
                 dis = new DataInputStream( is );
+
+                //had to use readLine since it seems that the service doesn't get along very well with readUTF.
                 String catUrl = dis.readLine();
                 dis.close();
 
