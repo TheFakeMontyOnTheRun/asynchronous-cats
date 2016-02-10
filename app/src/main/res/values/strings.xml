@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Simple Async Event Handler</string>
-    <string name="automatic_cat">Automatic cat randomizer</string>
+    <string name="automatic_cat">Automatic cat randomizer ("RandoCat")</string>
+    <string name="give_me_cat">Give me a cat!</string>
+    <string name="most_likely_cat">Most likely, a cat doing cat things</string>
+    <string name="failed_to_get_cat">Unfortunately, the cat could not be retrieved</string>
+    <string name="failed_to_find_a_cat">Unfortunately, no cat was found to comment</string>
 </resources>
