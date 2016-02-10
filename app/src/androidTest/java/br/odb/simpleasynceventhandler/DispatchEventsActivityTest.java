@@ -31,6 +31,74 @@ import static org.hamcrest.Matchers.not;
 @LargeTest
 public class DispatchEventsActivityTest {
 
+    @Rule
+    public ActivityTestRule<DispatchEventsActivity> mActivityRule = new ActivityTestRule<>(
+            DispatchEventsActivity.class);
+
+    @Test
+    public void verifyClickingOnButtonForFirstImageWillActuallyChangeTheImage() throws InterruptedException {
+
+        ImageView catView1 = ((ImageView)mActivityRule.getActivity().findViewById( R.id.catImageView1) );
+
+        //load some image first
+        onView(withId(R.id.btnLoadCatImage1)).perform(click());
+
+        Thread.sleep(3000L);
+
+        Drawable originalImage = catView1.getDrawable();
+
+        onView(withId(R.id.catImageView1))
+                .check(matches(doesImagesContainTheSamePixels(originalImage)));
+
+        onView(withId(R.id.btnLoadCatImage1)).perform(click());
+
+        Thread.sleep(3000L);
+
+        onView(withId(R.id.catImageView1))
+                .check(matches(not( doesImagesContainTheSamePixels(originalImage))));
+    }
+
+    @Test
+    public void verifyClickingOnButtonForSecondImageWillActuallyChangeTheImage() throws InterruptedException {
+
+        ImageView catView1 = ((ImageView)mActivityRule.getActivity().findViewById( R.id.catImageView2) );
+
+        //load some image first
+        onView(withId(R.id.btnLoadCatImage2)).perform(click());
+
+        Thread.sleep(3000L);
+
+        Drawable originalImage = catView1.getDrawable();
+
+        onView(withId(R.id.catImageView2))
+                .check(matches(doesImagesContainTheSamePixels(originalImage)));
+
+        onView(withId(R.id.btnLoadCatImage2)).perform(click());
+
+        Thread.sleep(3000L);
+
+        onView(withId(R.id.catImageView2))
+                .check(matches(not( doesImagesContainTheSamePixels(originalImage))));
+    }
+
+    @Test
+    public void verifyAutomaticCatChangeWillActuallyChangeThePhotoFromTimeToTime() throws InterruptedException {
+
+
+        ImageView catView3 = ((ImageView)mActivityRule.getActivity().findViewById( R.id.catImageView3) );
+
+        //Wait to make sure there is some image there first.
+        Thread.sleep(4000L);
+
+        Drawable originalImage = catView3.getDrawable();
+
+        Thread.sleep(4000L);
+
+        onView(withId(R.id.catImageView3))
+                .check(matches(not( doesImagesContainTheSamePixels(originalImage))));
+    }
+
+
     //http://hitherejoe.com/testing-imageview-changes-android-espresso-automated-tests/
     public static Matcher doesImagesContainTheSamePixels( final Drawable drawable ) {
         return new BoundedMatcher(ImageView.class) {
@@ -52,31 +120,4 @@ public class DispatchEventsActivityTest {
             }
         };
     };
-
-    @Rule
-    public ActivityTestRule<DispatchEventsActivity> mActivityRule = new ActivityTestRule<>(
-            DispatchEventsActivity.class);
-
-    @Test
-    public void verifyClickingOnButtonWillActuallyChangeTheImage() throws InterruptedException {
-
-        ImageView catView1 = ((ImageView)mActivityRule.getActivity().findViewById( R.id.catImageView1) );
-
-        //load some image first
-        onView(withId(R.id.btnLoadCatImage1)).perform(click());
-
-        Thread.sleep(3000L);
-
-        Drawable originalImage = catView1.getDrawable();
-
-        onView(withId(R.id.catImageView1))
-                .check(matches(doesImagesContainTheSamePixels(originalImage)));
-
-        onView(withId(R.id.btnLoadCatImage1)).perform(click());
-
-        Thread.sleep(3000L);
-
-        onView(withId(R.id.catImageView1))
-                .check(matches(not( doesImagesContainTheSamePixels(originalImage))));
-    }
 }
