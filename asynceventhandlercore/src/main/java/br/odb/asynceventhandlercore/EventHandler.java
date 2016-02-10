@@ -30,7 +30,7 @@ public class EventHandler {
     private boolean running = true;
 
     public EventHandler() {
-        mDesiredLatencyInMillis = (long) 100;
+        mDesiredLatencyInMillis = 100L;
         eventHandlerThread.start();
     }
 
