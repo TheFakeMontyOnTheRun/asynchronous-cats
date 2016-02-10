@@ -10,13 +10,13 @@ import br.odb.asynceventhandlercore.Factories.AsyncEventFactoryImpl;
 public class EventHandler implements Runnable {
     private final Vector< AsyncEvent > events = new Vector<>();
     private final Thread eventHandlerThread = new Thread( this );
-    private final long mDesiredLatencyInMilis;
+    private final long mDesiredLatencyInMillis;
     private final AsyncEventFactory mEventFactory = new AsyncEventFactoryImpl();
 
     private boolean running = true;
 
     public EventHandler(long desiredLatency) {
-        mDesiredLatencyInMilis = desiredLatency;
+        mDesiredLatencyInMillis = desiredLatency;
     }
 
     public void startHandling() {
@@ -34,7 +34,7 @@ public class EventHandler implements Runnable {
         while( running ) {
             try {
                 consumeFromQueue();
-                Thread.sleep(mDesiredLatencyInMilis);
+                Thread.sleep(mDesiredLatencyInMillis);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
