@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import br.odb.asynceventhandlercore.AsyncEventFactory;
 import br.odb.asynceventhandlercore.EventHandler;
 import br.odb.asynceventhandlercore.EventResponse;
@@ -16,10 +19,14 @@ import br.odb.asynceventhandlercore.FetchCatUrlResponse;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static long RANDOCAT_INTERVAL = 2000L;
+
     private ImageView mCatImageView1;
     private ImageView mCatImageView2;
+    private ImageView mCatImageView3;
+    private AsyncEventFactory mEventFactory;
     private EventHandler mEventHandler;
-    AsyncEventFactory mEventFactory;
+    private Timer mTimer = new Timer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +35,14 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
         mCatImageView1 = (ImageView) findViewById(R.id.catImageView1);
         mCatImageView2 = (ImageView) findViewById(R.id.catImageView2);
+        mCatImageView3 = (ImageView) findViewById(R.id.catImageView3);
 
         this.findViewById( R.id.btnLoadCatImage1 ).setOnClickListener(this);
         this.findViewById( R.id.btnLoadCatImage2 ).setOnClickListener(this);
 
         mEventHandler = new EventHandler();
         mEventFactory = mEventHandler.getFactory();
+        startRandoCatTimer();
     }
 
     @Override
@@ -50,6 +59,16 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
 
         super.onPause();
     }
+
+    private void startRandoCatTimer() {
+        mTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (mEventHandler.isRunning()) {
+                    loadRandomCatUrlIntoView(mCatImageView3);
+                }
+            }
+        }, RANDOCAT_INTERVAL, RANDOCAT_INTERVAL);
     }
 
     @Override
