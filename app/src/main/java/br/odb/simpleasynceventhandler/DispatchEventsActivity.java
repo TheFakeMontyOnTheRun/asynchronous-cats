@@ -19,7 +19,7 @@ import br.odb.asynceventhandlercore.FetchCatUrlResponse;
 
 public class DispatchEventsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final long RANDOCAT_INTERVAL = 2000L;
+    private static final long RANDOCAT_INTERVAL = 5000L;
 
     private ImageView mCatImageView1;
     private ImageView mCatImageView2;

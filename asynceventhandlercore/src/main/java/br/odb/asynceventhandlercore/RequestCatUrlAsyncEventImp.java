@@ -26,7 +26,7 @@ class RequestCatUrlAsyncEventImp extends AbstractAsyncEvent {
         URL randomCatsApi = null;
 
         try {
-            randomCatsApi = new URL( "http://random.cat/meow" );
+            randomCatsApi = new URL( "http://aws.random.cat/meow" );
         } catch (MalformedURLException e) {
             reportFailure();
         }
