@@ -2,8 +2,6 @@ package br.odb.asynceventhandlercore;
 
 import android.graphics.Bitmap;
 
-import br.odb.asynceventhandlercore.EventResponse;
-
 /**
  * Created by monty on 09/02/16.
  */

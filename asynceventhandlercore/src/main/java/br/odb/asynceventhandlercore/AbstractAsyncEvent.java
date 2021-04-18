@@ -1,9 +1,5 @@
 package br.odb.asynceventhandlercore;
 
-import br.odb.asynceventhandlercore.AsyncEvent;
-import br.odb.asynceventhandlercore.EventResponse;
-import br.odb.asynceventhandlercore.EventResultCallback;
-
 /**
  * Created by monty on 09/02/16.
  */

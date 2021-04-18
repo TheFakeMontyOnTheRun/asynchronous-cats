@@ -33,9 +33,9 @@ public class DispatchEventsActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispatch_events);
 
-        mCatImageView1 = (ImageView) findViewById(R.id.catImageView1);
-        mCatImageView2 = (ImageView) findViewById(R.id.catImageView2);
-        mCatImageView3 = (ImageView) findViewById(R.id.catImageView3);
+        mCatImageView1 = findViewById(R.id.catImageView1);
+        mCatImageView2 = findViewById(R.id.catImageView2);
+        mCatImageView3 = findViewById(R.id.catImageView3);
 
         this.findViewById( R.id.btnLoadCatImage1 ).setOnClickListener(this);
         this.findViewById( R.id.btnLoadCatImage2 ).setOnClickListener(this);
